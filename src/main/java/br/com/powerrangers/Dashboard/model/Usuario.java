@@ -5,6 +5,7 @@
  */
 package br.com.powerrangers.Dashboard.model;
 
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -24,6 +25,16 @@ public class Usuario {
     private int idade;
     @NotEmpty
     private String status;
+    @ManyToOne
+    private List<Acesso>Acessos;
+
+    public List<Acesso> getAcessos() {
+        return Acessos;
+    }
+
+    public void setAcessos(List<Acesso> Acessos) {
+        this.Acessos = Acessos;
+    }
 
     public String getStatus() {
         return status;

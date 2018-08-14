@@ -6,6 +6,7 @@
 package br.com.powerrangers.Dashboard.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -22,7 +23,11 @@ public class Acesso {
     private long id;
     @NotEmpty
     private Date data;
-
+    @OneToMany
+    private Usuario usuarios;
+    @OneToMany
+    private Arquivo arquivos;
+    
     public long getId() {
         return id;
     }
