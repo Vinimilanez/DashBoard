@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.powerrangers.Dashboard.controller;
-
-import org.springframework.stereotype.Controller;
+package br.com.powerrangers.Dashboard.repository;
 
 /**
  *
  * @author vinic
  */
-@Controller
-public class DownloadController {
+public interface DownloadRepository  extends {
     
 }
