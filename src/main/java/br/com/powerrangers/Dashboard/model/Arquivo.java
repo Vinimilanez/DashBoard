@@ -25,15 +25,37 @@ public class Arquivo {
     @NotEmpty
     private String status;
     @ManyToOne
-    private List<Acesso>Acessos;
+    private List<Acesso>acessos;
+    @ManyToOne
+    private List<Download>download;
+    @OneToOne
+    private Upload upload;
 
     public List<Acesso> getAcessos() {
-        return Acessos;
+        return acessos;
     }
 
-    public void setAcessos(List<Acesso> Acessos) {
-        this.Acessos = Acessos;
+    public void setAcessos(List<Acesso> acessos) {
+        this.acessos = acessos;
     }
+
+    public List<Download> getDownload() {
+        return download;
+    }
+
+    public void setDownload(List<Download> download) {
+        this.download = download;
+    }
+
+    public Upload getUpload() {
+        return upload;
+    }
+
+    public void setUpload(Upload upload) {
+        this.upload = upload;
+    }
+
+    
 
     public long getId() {
         return id;

@@ -27,6 +27,22 @@ public class Acesso {
     private Usuario usuarios;
     @OneToMany
     private Arquivo arquivos;
+
+    public Usuario getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Usuario usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public Arquivo getArquivos() {
+        return arquivos;
+    }
+
+    public void setArquivos(Arquivo arquivos) {
+        this.arquivos = arquivos;
+    }
     
     public long getId() {
         return id;

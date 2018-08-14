@@ -22,12 +22,13 @@ public class Upload {
     private long id;
     @NotEmpty
     private Date data;
-    @NotEmpty
+    @OneToMany
     private Usuario usuario;
-    @NotEmpty
+    @OneToMany
     private Arquivo arquivo;
     @NotEmpty
     private String status;
+    
 
     public long getId() {
         return id;

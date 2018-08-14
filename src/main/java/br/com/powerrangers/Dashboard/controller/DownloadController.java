@@ -43,6 +43,6 @@ public class DownloadController {
     Download down = dr.findByid(id);
     ModelAndView mv = new ModelAndView();
     mv.addObject("Download",down);
-    Iterable <Usuario> usu = ur.findBydownload(download);
+    Iterable <Usuario> = ur.findByid(id)
     }
 }

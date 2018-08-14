@@ -26,16 +26,28 @@ public class Usuario {
     @NotEmpty
     private String status;
     @ManyToOne
-    private List<Acesso>Acessos;
+    private List<Acesso>acessos;
+    @ManyToOne
+    private List<Download>downloads;
 
     public List<Acesso> getAcessos() {
-        return Acessos;
+        return acessos;
     }
 
-    public void setAcessos(List<Acesso> Acessos) {
-        this.Acessos = Acessos;
+    public void setAcessos(List<Acesso> acessos) {
+        this.acessos = acessos;
     }
 
+    public List<Download> getDownloads() {
+        return downloads;
+    }
+
+    public void setDownloads(List<Download> downloads) {
+        this.downloads = downloads;
+    }
+    
+    
+    
     public String getStatus() {
         return status;
     }
