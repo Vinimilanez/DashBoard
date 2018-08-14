@@ -13,8 +13,8 @@ import javax.validation.constraints.NotEmpty;
  *
  * @author vinic
  */
-@Entity
-public class Acesso {
+    @Entity
+    public class Acesso {
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
