@@ -5,13 +5,14 @@
  */
 package br.com.powerrangers.Dashboard.repository;
 
-import br.com.powerrangers.Dashboard.model.Download;
+import br.com.powerrangers.Dashboard.model.Acesso;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author vinic
  */
-public interface DownloadRepository  extends CrudRepository<Download,String>{
-   Download findByid (long id);    
+public interface AcessoRepository extends CrudRepository<Acesso, String>{
+    Acesso findByid(long id);
+    
 }

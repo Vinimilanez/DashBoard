@@ -5,13 +5,14 @@
  */
 package br.com.powerrangers.Dashboard.repository;
 
-import br.com.powerrangers.Dashboard.model.Download;
+import br.com.powerrangers.Dashboard.model.Arquivo;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author vinic
  */
-public interface DownloadRepository  extends CrudRepository<Download,String>{
-   Download findByid (long id);    
+public interface ArquivoRepository extends CrudRepository<Arquivo,String> {
+    Arquivo findByid();
+     
 }
