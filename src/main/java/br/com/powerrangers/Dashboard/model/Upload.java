@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.powerrangers.model;
+package br.com.powerrangers.Dashboard.model;
 
+import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -13,13 +14,18 @@ import javax.validation.constraints.NotEmpty;
  * @author vinic
  */
 @Entity
-public class Arquivo {
+public class Upload {
+
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @NotEmpty
-    private String nome;
+    private Date data;
+    @NotEmpty
+    private Usuario usuario;
+    @NotEmpty
+    private Arquivo arquivo;
     @NotEmpty
     private String status;
 
@@ -31,12 +37,28 @@ public class Arquivo {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Date getData() {
+        return data;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Arquivo getArquivo() {
+        return arquivo;
+    }
+
+    public void setArquivo(Arquivo arquivo) {
+        this.arquivo = arquivo;
     }
 
     public String getStatus() {
@@ -46,6 +68,5 @@ public class Arquivo {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
+
 }

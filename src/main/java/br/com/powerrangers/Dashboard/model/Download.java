@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.powerrangers.model;
+package br.com.powerrangers.Dashboard.model;
 
 import java.util.Date;
 import javax.persistence.*;
@@ -13,8 +13,8 @@ import javax.validation.constraints.NotEmpty;
  *
  * @author vinic
  */
-@Entity
 public class Download {
+
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,10 +22,8 @@ public class Download {
     @NotEmpty
     private Date data;
     @NotEmpty
-    @ManyToMany
     private Usuario usuario;
     @NotEmpty
-    @ManyToMany
     private Arquivo arquivo;
     @NotEmpty
     private String status;
@@ -69,7 +67,5 @@ public class Download {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
-    
+
 }

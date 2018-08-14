@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.powerrangers.model;
+package br.com.powerrangers.Dashboard.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -18,10 +18,8 @@ public class Usuario {
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    
     @NotEmpty
-    private String nome,pais,lingua;
-    
+    private String nome, pais, lingua;
     @NotEmpty
     private int idade;
     @NotEmpty
@@ -34,7 +32,6 @@ public class Usuario {
     public void setStatus(String status) {
         this.status = status;
     }
-    
 
     public long getId() {
         return id;
@@ -75,6 +72,5 @@ public class Usuario {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-    
-    
+
 }

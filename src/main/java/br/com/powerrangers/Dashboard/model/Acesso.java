@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.powerrangers.model;
+package br.com.powerrangers.Dashboard.model;
 
 import java.util.Date;
 import javax.persistence.*;
@@ -13,8 +13,9 @@ import javax.validation.constraints.NotEmpty;
  *
  * @author vinic
  */
-    @Entity
-    public class Acesso {
+@Entity
+public class Acesso {
+
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,5 +38,5 @@ import javax.validation.constraints.NotEmpty;
     public void setData(Date data) {
         this.data = data;
     }
-     
+
 }
