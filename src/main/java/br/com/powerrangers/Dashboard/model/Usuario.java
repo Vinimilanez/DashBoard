@@ -20,7 +20,7 @@ public class Usuario implements Serializable {
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_usuario;
+    private int id_usuario;
     @NotEmpty
     @Column
     private String nome;
@@ -80,7 +80,7 @@ public class Usuario implements Serializable {
         return id_usuario;
     }
 
-    public void setId_usuario(long id_usuario) {
+    public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
     

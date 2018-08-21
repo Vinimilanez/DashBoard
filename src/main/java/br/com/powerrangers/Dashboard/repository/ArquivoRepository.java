@@ -6,13 +6,14 @@
 package br.com.powerrangers.Dashboard.repository;
 
 import br.com.powerrangers.Dashboard.model.Arquivo;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author vinic
  */
-public interface ArquivoRepository extends CrudRepository<Arquivo,Long> {
-    Arquivo findByid_arquivo(long id_arquivo);
+public interface ArquivoRepository extends JpaRepository<Arquivo,String> {
+    
      
 }

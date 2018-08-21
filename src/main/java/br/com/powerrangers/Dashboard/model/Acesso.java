@@ -20,15 +20,15 @@ public class Acesso implements Serializable {
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_acesso;
+    private int id_acesso;
     @NotEmpty
-     @Column
+    @Column
     private Date data;
-    @ManyToOne (fetch = FetchType.LAZY)
-       @JoinColumn(name = "id_usuario")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
     private Usuario usuarios;
-    @ManyToOne (fetch = FetchType.LAZY)
-       @JoinColumn(name = "id_arquivo")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_arquivo")
     private Arquivo arquivos;
 
     public Usuario getUsuarios() {
@@ -51,11 +51,9 @@ public class Acesso implements Serializable {
         return id_acesso;
     }
 
-    public void setId_acesso(long id_acesso) {
+    public void setId_acesso(int id_acesso) {
         this.id_acesso = id_acesso;
     }
-    
-    
 
     public Date getData() {
         return data;

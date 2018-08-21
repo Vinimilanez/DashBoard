@@ -20,7 +20,7 @@ public class Arquivo implements Serializable {
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_arquivo;
+    private int id_arquivo;
     @NotEmpty
     @Column
     private String nome;
@@ -63,7 +63,7 @@ public class Arquivo implements Serializable {
         return id_arquivo;
     }
 
-    public void setId_arquivo(long id_arquivo) {
+    public void setId_arquivo(int id_arquivo) {
         this.id_arquivo = id_arquivo;
     }
 
