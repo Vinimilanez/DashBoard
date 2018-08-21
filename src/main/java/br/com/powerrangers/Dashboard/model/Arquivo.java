@@ -5,6 +5,7 @@
  */
 package br.com.powerrangers.Dashboard.model;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -14,21 +15,24 @@ import javax.validation.constraints.NotEmpty;
  * @author vinic
  */
 @Entity
-public class Arquivo {
+public class Arquivo implements Serializable {
 
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long id_arquivo;
     @NotEmpty
+    @Column
     private String nome;
     @NotEmpty
+    @Column
     private String status;
-    @ManyToOne
-    private List<Acesso>acessos;
-    @ManyToOne
-    private List<Download>download;
-    @OneToOne
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Acesso> acessos;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Download> download;
+    @OneToOne(fetch = FetchType.LAZY)
     private Upload upload;
 
     public List<Acesso> getAcessos() {
@@ -55,14 +59,12 @@ public class Arquivo {
         this.upload = upload;
     }
 
-    
-
-    public long getId() {
-        return id;
+    public long getId_arquivo() {
+        return id_arquivo;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId_arquivo(long id_arquivo) {
+        this.id_arquivo = id_arquivo;
     }
 
     public String getNome() {

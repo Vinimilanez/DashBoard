@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author vinic
  */
-public interface UsuarioRepository extends CrudRepository<Usuario, String>{
-    Usuario findByid(long id);
+public interface UsuarioRepository extends CrudRepository<Usuario, Long>{
+    Usuario findByid_usuario(long id_usuario);
 }

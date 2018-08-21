@@ -12,7 +12,7 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author vinic
  */
-public interface AcessoRepository extends CrudRepository<Acesso, String>{
-    Acesso findByid(long id);
+public interface AcessoRepository extends CrudRepository<Acesso, Long>{
+    Acesso findByid_acesso(long id_acesso);
     
 }

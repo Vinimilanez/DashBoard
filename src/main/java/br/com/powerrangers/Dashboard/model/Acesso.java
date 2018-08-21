@@ -5,8 +5,8 @@
  */
 package br.com.powerrangers.Dashboard.model;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -15,17 +15,20 @@ import javax.validation.constraints.NotEmpty;
  * @author vinic
  */
 @Entity
-public class Acesso {
+public class Acesso implements Serializable {
 
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long id_acesso;
     @NotEmpty
+     @Column
     private Date data;
-    @OneToMany
+    @ManyToOne (fetch = FetchType.LAZY)
+       @JoinColumn(name = "id_usuario")
     private Usuario usuarios;
-    @OneToMany
+    @ManyToOne (fetch = FetchType.LAZY)
+       @JoinColumn(name = "id_arquivo")
     private Arquivo arquivos;
 
     public Usuario getUsuarios() {
@@ -43,14 +46,16 @@ public class Acesso {
     public void setArquivos(Arquivo arquivos) {
         this.arquivos = arquivos;
     }
-    
-    public long getId() {
-        return id;
+
+    public long getId_acesso() {
+        return id_acesso;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId_acesso(long id_acesso) {
+        this.id_acesso = id_acesso;
     }
+    
+    
 
     public Date getData() {
         return data;

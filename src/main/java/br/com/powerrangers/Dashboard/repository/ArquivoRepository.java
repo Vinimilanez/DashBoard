@@ -12,7 +12,7 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author vinic
  */
-public interface ArquivoRepository extends CrudRepository<Arquivo,String> {
-    Arquivo findByid(long id);
+public interface ArquivoRepository extends CrudRepository<Arquivo,Long> {
+    Arquivo findByid_arquivo(long id_arquivo);
      
 }

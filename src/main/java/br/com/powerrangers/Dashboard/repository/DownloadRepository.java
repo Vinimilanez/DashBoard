@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author vinic
  */
-public interface DownloadRepository  extends CrudRepository<Download,String>{
-   Download findByid (long id);    
+public interface DownloadRepository  extends CrudRepository<Download,Long>{
+   Download findByid_download (long id_download);    
 }

@@ -5,6 +5,7 @@
  */
 package br.com.powerrangers.Dashboard.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -13,29 +14,32 @@ import javax.validation.constraints.NotEmpty;
  *
  * @author vinic
  */
-public class Download {
+@Entity
+public class Download implements Serializable {
 
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long id_download;
     @NotEmpty
+    @Column
     private Date data;
-    @OneToMany
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
-    @OneToMany
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_arquivo")
     private Arquivo arquivo;
     @NotEmpty
+    @Column
     private String status;
-    
-    
 
-    public long getId() {
-        return id;
+    public long getId_download() {
+        return id_download;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId_download(long id_download) {
+        this.id_download = id_download;
     }
 
     public Date getData() {

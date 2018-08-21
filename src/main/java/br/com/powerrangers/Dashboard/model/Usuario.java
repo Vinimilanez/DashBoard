@@ -5,6 +5,7 @@
  */
 package br.com.powerrangers.Dashboard.model;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -14,23 +15,34 @@ import javax.validation.constraints.NotEmpty;
  * @author vinic
  */
 @Entity
-public class Usuario {
+public class Usuario implements Serializable {
+
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long id_usuario;
     @NotEmpty
-    private String nome, pais, lingua;
+    @Column
+    private String nome;
     @NotEmpty
+    @Column
+    private String pais;
+    @NotEmpty
+    @Column
+    private String lingua;
+    @NotEmpty
+    @Column
     private int idade;
     @NotEmpty
+    @Column
     private String status;
-    @ManyToOne
-    private List<Acesso>acessos;
-    @ManyToOne
-    private List<Download>downloads;
-    @ManyToOne
-    private List<Upload>upload;
+
+    @OneToMany(fetch = FetchType.LAZY) 
+    private List<Acesso> acessos;
+    @OneToMany(fetch = FetchType.LAZY) 
+    private List<Download> downloads;
+    @OneToMany(fetch = FetchType.LAZY) 
+    private List<Upload> upload;
 
     public List<Upload> getUpload() {
         return upload;
@@ -55,9 +67,7 @@ public class Usuario {
     public void setDownloads(List<Download> downloads) {
         this.downloads = downloads;
     }
-    
-    
-    
+
     public String getStatus() {
         return status;
     }
@@ -66,14 +76,14 @@ public class Usuario {
         this.status = status;
     }
 
-    public long getId() {
-        return id;
+    public long getId_usuario() {
+        return id_usuario;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId_usuario(long id_usuario) {
+        this.id_usuario = id_usuario;
     }
-
+    
     public String getNome() {
         return nome;
     }

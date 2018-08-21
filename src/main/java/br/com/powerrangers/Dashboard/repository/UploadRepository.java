@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author vinic
  */
-public interface UploadRepository extends CrudRepository<Upload, String> {
-     Upload findByid(long id);
+public interface UploadRepository extends CrudRepository<Upload, Long> {
+     Upload findByid_upload(long id_upload);
 }
