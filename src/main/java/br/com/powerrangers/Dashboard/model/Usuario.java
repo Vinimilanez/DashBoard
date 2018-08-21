@@ -29,6 +29,16 @@ public class Usuario {
     private List<Acesso>acessos;
     @ManyToOne
     private List<Download>downloads;
+    @ManyToOne
+    private List<Upload>upload;
+
+    public List<Upload> getUpload() {
+        return upload;
+    }
+
+    public void setUpload(List<Upload> upload) {
+        this.upload = upload;
+    }
 
     public List<Acesso> getAcessos() {
         return acessos;

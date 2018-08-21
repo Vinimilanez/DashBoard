@@ -22,9 +22,9 @@ public class Upload {
     private long id;
     @NotEmpty
     private Date data;
-    @OneToMany
+    @OneToOne
     private Usuario usuario;
-    @OneToMany
+    @OneToOne
     private Arquivo arquivo;
     @NotEmpty
     private String status;
