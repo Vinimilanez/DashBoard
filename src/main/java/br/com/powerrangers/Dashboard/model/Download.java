@@ -20,7 +20,7 @@ public class Download implements Serializable {
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_download;
+    private int idDownload;
     @NotEmpty
     @Column
     private Date data;
@@ -34,13 +34,15 @@ public class Download implements Serializable {
     @Column
     private String status;
 
-    public long getId_download() {
-        return id_download;
+    public int getIdDownload() {
+        return idDownload;
     }
 
-    public void setId_download(int id_download) {
-        this.id_download = id_download;
+    public void setIdDownload(int idDownload) {
+        this.idDownload = idDownload;
     }
+
+    
 
     public Date getData() {
         return data;

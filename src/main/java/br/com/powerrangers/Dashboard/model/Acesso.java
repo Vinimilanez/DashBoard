@@ -20,7 +20,7 @@ public class Acesso implements Serializable {
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_acesso;
+    private int idAcesso;
     @NotEmpty
     @Column
     private Date data;
@@ -47,13 +47,14 @@ public class Acesso implements Serializable {
         this.arquivos = arquivos;
     }
 
-    public long getId_acesso() {
-        return id_acesso;
+    public int getIdAcesso() {
+        return idAcesso;
     }
 
-    public void setId_acesso(int id_acesso) {
-        this.id_acesso = id_acesso;
+    public void setIdAcesso(int idAcesso) {
+        this.idAcesso = idAcesso;
     }
+
 
     public Date getData() {
         return data;

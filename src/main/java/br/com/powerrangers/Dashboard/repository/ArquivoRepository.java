@@ -5,15 +5,22 @@
  */
 package br.com.powerrangers.Dashboard.repository;
 
+import br.com.powerrangers.Dashboard.model.Acesso;
 import br.com.powerrangers.Dashboard.model.Arquivo;
-import org.springframework.data.jpa.repository.JpaRepository;
+import br.com.powerrangers.Dashboard.model.Download;
+import br.com.powerrangers.Dashboard.model.Upload;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author vinic
  */
-public interface ArquivoRepository extends JpaRepository<Arquivo,String> {
+@Repository
+public interface ArquivoRepository extends CrudRepository<Arquivo,String> {
+
     
-     
+    
+    public Arquivo findByidArquivo(int id_arquivo);  
+
 }

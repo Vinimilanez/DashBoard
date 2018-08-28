@@ -20,7 +20,7 @@ public class Upload implements Serializable {
     @Id
     @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_upload;
+    private int idUpload;
     @NotEmpty
     @Column
     private Date data;
@@ -35,12 +35,12 @@ public class Upload implements Serializable {
     @Column
     private String status;
 
-    public long getId_upload() {
-        return id_upload;
+    public int getIdUpload() {
+        return idUpload;
     }
 
-    public void setId_upload(int id_upload) {
-        this.id_upload = id_upload;
+    public void setIdUpload(int idUpload) {
+        this.idUpload = idUpload;
     }
 
     public Date getData() {

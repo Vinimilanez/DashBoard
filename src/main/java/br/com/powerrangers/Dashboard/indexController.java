@@ -5,8 +5,14 @@
  */
 package br.com.powerrangers.Dashboard;
 
+import br.com.powerrangers.Dashboard.model.Arquivo;
+import br.com.powerrangers.Dashboard.model.Usuario;
+import br.com.powerrangers.Dashboard.repository.ArquivoRepository;
+import br.com.powerrangers.Dashboard.repository.UsuarioRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -14,12 +20,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class indexController {
+    UsuarioRepository ur;
+    ArquivoRepository ar;
     @RequestMapping("/")
-    public String index(){
-      return "index";
+    public ModelAndView index() {
+        
+        ModelAndView mv = new ModelAndView("index");
+        
+        Iterable<Usuario> usuario  = ur.findAll();
+        mv.addObject("usuario",usuario);
+        
+        
+        return mv;
     }
-    @RequestMapping("/cadastroArquivo")
-    public class CadastroArquivo{
-       
-    }
+
+   
 }
