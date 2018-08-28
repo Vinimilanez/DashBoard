@@ -9,6 +9,7 @@ import br.com.powerrangers.Dashboard.model.Acesso;
 import br.com.powerrangers.Dashboard.model.Arquivo;
 import br.com.powerrangers.Dashboard.model.Download;
 import br.com.powerrangers.Dashboard.model.Upload;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,10 +18,7 @@ import org.springframework.stereotype.Repository;
  * @author vinic
  */
 @Repository
-public interface ArquivoRepository extends CrudRepository<Arquivo,String> {
+public interface ArquivoRepository extends JpaRepository<Arquivo,Long> {
 
-    
-    
-    public Arquivo findByidArquivo(int id_arquivo);  
 
 }
