@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html >
 <html>
     <head>
         <title>Dashboard</title>
@@ -7,13 +8,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="Jquery/Jquery.js"></script>
-
-        <!-- Bootstrap -->
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/estilo-central.css" rel="stylesheet">
-        <link href="bootstrap/css/bootbox.min.js">
-        <link href="bootstrap/fonts/icons.css" rel="stylesheet">
+        <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+              rel="stylesheet">
+        <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
 
         <style type="text/css">
 
@@ -57,7 +55,9 @@
             #estatisticas-superior{
                 margin-bottom: 20px;
             }
-
+            a{
+               cursor: pointer; 
+            }
             #graficos{
                 background: white;
                 color: black;
@@ -116,6 +116,30 @@
 
         </style>
 
+        <script type="text/javascript">
+           
+           function NovoArquivo(){
+             
+       if(document.getElementById("cadastro-arquivo").style.display === "none"){
+            document.getElementById("cadastro-arquivo").style.display = 'block';
+       }else{
+            document.getElementById("cadastro-arquivo").style.display = 'none';
+       }
+    
+       }
+       
+              function NovoUsuario(){
+             
+       if(document.getElementById("cadastro-usuario").style.display === "none"){
+            document.getElementById("cadastro-usuario").style.display = 'block';
+       }else{
+            document.getElementById("cadastro-usuario").style.display = 'none';
+       }
+    
+       }
+       
+        </script>
+
     </head>
 
     <body>
@@ -125,8 +149,27 @@
 
                 <div class="col-md-2 sidenav"  >
                     <a class="glyphicon glyphicon-dashboard" href="central.php"> <span style="font-size: 20px;">Dashboard</span></a> <br>
-                    <a data-toggle='modal' href='#myModalEdit'>Novo Usuário</a>
-                    <a href="faca_seu_pedido.php">Novo Arquivo</a>
+                    <a id="btn-novo-arquivo" onclick="NovoArquivo()" >Novo Arquivo</a>
+                    <div id="cadastro-arquivo" style="display: none;" class="col-md-12">
+                        <form method="POST">
+                            
+                            <input style="margin-bottom: 5px;" name="pais" type="text" class="form-control" placeholder="Nome do Arquivo:" > 
+                            <input style="width: 100%;" type="button" class="btn btn-success" value="Salvar">
+                            
+                        </form>
+                    </div>
+                    <a onclick="NovoUsuario()()">Novo Usuário</a>
+                      <div id="cadastro-usuario" style="display: none;" class="col-md-12">
+                        <form method="POST">
+                            
+                            <input style="margin-bottom: 5px;" name="nome" type="text" class="form-control" placeholder="Nome " > 
+                            <input style="margin-bottom: 5px;" name="pais" type="text" class="form-control" placeholder="País:" >
+                            <input style="margin-bottom: 5px;" name="lingua" type="text" class="form-control" placeholder="Lingua:" >
+                            <input style="margin-bottom: 5px;"  name="idade"type="text" class="form-control" placeholder="Idade:" >
+                            <input style="width: 100%;" type="button" class="btn btn-success" value="Salvar">
+                            
+                        </form>
+                    </div>
 
 
                 </div>
@@ -186,38 +229,7 @@
 
 
         </div>
-
-    </div>
-
-    <!-- Modal de Edição  -->
-    <div id="myModalEdit" class="modal fade in">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <center> <h3>Editar Proprietarios</h3></center> 
-                </div>
-                <div id="modal-body-edit" class="modal-body">
-
-                </div>
-
-
-            </div>
-
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dalog -->
-</div><!-- /.modal -->
-
-
-
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="Ajax/ajax.js"> </script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
-
-
-</body>
+    </body>
 
 
 </html>
