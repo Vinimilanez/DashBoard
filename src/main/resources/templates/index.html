@@ -1,219 +1,219 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Dashboard</title>
-     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Dashboard</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <script src="Jquery/Jquery.js"></script>
-   
-   <!-- Bootstrap -->
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/estilo-central.css" rel="stylesheet">
-  <link href="bootstrap/css/bootbox.min.js">
-  <link href="bootstrap/fonts/icons.css" rel="stylesheet">
+        <script src="Jquery/Jquery.js"></script>
 
-  <style type="text/css">
-    
-   html,body, .container-fluid{
-  height: 100%;
-  overflow: auto; 
-  
-  }
+        <!-- Bootstrap -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/estilo-central.css" rel="stylesheet">
+        <link href="bootstrap/css/bootbox.min.js">
+        <link href="bootstrap/fonts/icons.css" rel="stylesheet">
 
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-width: 1000px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-    .sidenav {height: 200px;}
-    .sidenav {text-align: center;}
-   
+        <style type="text/css">
 
-    
-    
-}
+            html,body, .container-fluid{
+                height: 100%;
+                overflow: auto; 
 
-  body{
-    background: #c8c8c8;
-    background-attachment: fixed; 
-    font-family: Helvetica,Arial,Sans-serif; 
-    overflow-x: hidden;
-    background-size: 100%;
-    color: black;
-    font-size: 15px;
-    overflow: auto;
-    }
+            }
 
-    #tela-principal{
-     background: #c8c8c8;
-     color: black;
-     height: 100%;
-     padding: 5px;
-     overflow: auto;
-    }
-
-    #estatisticas-superior{
-       margin-bottom: 20px;
-    }
-
-    #graficos{
-     background: white;
-     color: black;
-     padding: 5px;
-     height: 300px;
-     border: 2px solid #c8c8c8;
-    }
-
-    #estatisticas-inferior{
-     background: white;
-     color: black;
-     padding: 5px;
-     height: 300px;
-     border: 2px solid #c8c8c8;
-    }
-
-    #tabela-usuarios{
-     background: white;
-     color: black;
-     padding: 5px;
-     height: 600px;
-     border: 2px solid #c8c8c8;
-    }
-
-   
-
-    .blocos-estatistica{
-      height: 180px;
-      border: 5px solid #c8c8c8 ;
-     
-    }
-
-  
-
-    /* The sidebar menu */
-.sidenav {
-    text-align: left;
-    background-color: #FFFFFF; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
-    height: 100%;
-}
-
-/* The navigation menu links */
-.sidenav a {
-    padding: 20px 8px 6px 16px;
-    text-decoration: none;
-    color: black;
-    display: block;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-    color: green;
-}
-
- </style>
-
-</head>
-
-<body>
-
-<div class="container-fluid">
-    <div  class="row" style="height: 100% ;" > 
-      
-       <div class="col-md-2 sidenav"  >
-         <a class="glyphicon glyphicon-dashboard" href="central.php"> <span style="font-size: 20px;">Dashboard</span></a> <br>
-         <a data-toggle='modal' href='#myModalEdit'>Novo Usuário</a>
-         <a href="faca_seu_pedido.php">Novo Arquivo</a>
-        
-          
-       </div>
-
-       <div id="tela-principal" class="col-md-10 ">
-         
-        
-
-         <div class="col-md-12 " id="estatisticas-superior"  >
-           <div class="col-md-12" style="text-align: center;"> <h3>Estatísticas</h3></div>
-           
-            <div style="background:#DF013A;" class="col-md-3 blocos-estatistica "> </div>
-
-            <div style="background:#1C82E0;" class="col-md-3 blocos-estatistica"> </div>
-
-            <div style="background:#EBEF13;" class="col-md-3 blocos-estatistica"> </div>
-
-            <div  style="background:#10BE07;" class="col-md-3 blocos-estatistica"> </div>           
-
-         </div>
-          
-          <div class="col-md-6">
-          
-          <div class="col-md-12 " id="graficos"  >
-          
-           <center>GRAFICOS</center>
-
-         </div>
-
-          <div class="col-md-12 " id="estatisticas-inferior"  >
-          
-           <center>ESTATISTICAS INFERIOR</center>
-
-         </div>
-
-         </div>
-
-           <div class="col-md-6 " id="tabela-usuarios"  >
-          
-           <center>TABELA USUARIOS</center>
-
-         </div>
-
-
-         
-        
-
-
-       </div>
-
-       </div>
-
-      
+            /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+            @media screen and (max-width: 1000px) {
+                .sidenav {padding-top: 15px;}
+                .sidenav a {font-size: 18px;}
+                .sidenav {height: 200px;}
+                .sidenav {text-align: center;}
 
 
 
-   
 
-</div>
+            }
 
-</div>
+            body{
+                background: #c8c8c8;
+                background-attachment: fixed; 
+                font-family: Helvetica,Arial,Sans-serif; 
+                overflow-x: hidden;
+                background-size: 100%;
+                color: black;
+                font-size: 15px;
+                overflow: auto;
+            }
 
-<!-- Modal de Edição  -->
-            <div id="myModalEdit" class="modal fade in">
+            #tela-principal{
+                background: #c8c8c8;
+                color: black;
+                height: 100%;
+                padding: 5px;
+                overflow: auto;
+            }
+
+            #estatisticas-superior{
+                margin-bottom: 20px;
+            }
+
+            #graficos{
+                background: white;
+                color: black;
+                padding: 5px;
+                height: 300px;
+                border: 2px solid #c8c8c8;
+            }
+
+            #estatisticas-inferior{
+                background: white;
+                color: black;
+                padding: 5px;
+                height: 300px;
+                border: 2px solid #c8c8c8;
+            }
+
+            #tabela-usuarios{
+                background: white;
+                color: black;
+                padding: 5px;
+                height: 600px;
+                border: 2px solid #c8c8c8;
+            }
+
+
+
+            .blocos-estatistica{
+                height: 180px;
+                border: 5px solid #c8c8c8 ;
+
+            }
+
+
+
+            /* The sidebar menu */
+            .sidenav {
+                text-align: left;
+                background-color: #FFFFFF; /* Black */
+                overflow-x: hidden; /* Disable horizontal scroll */
+                padding-top: 20px;
+                height: 100%;
+            }
+
+            /* The navigation menu links */
+            .sidenav a {
+                padding: 20px 8px 6px 16px;
+                text-decoration: none;
+                color: black;
+                display: block;
+            }
+
+            /* When you mouse over the navigation links, change their color */
+            .sidenav a:hover {
+                color: green;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+            <div  class="row" style="height: 100% ;" > 
+
+                <div class="col-md-2 sidenav"  >
+                    <a class="glyphicon glyphicon-dashboard" href="central.php"> <span style="font-size: 20px;">Dashboard</span></a> <br>
+                    <a data-toggle='modal' href='#myModalEdit'>Novo Usuário</a>
+                    <a href="faca_seu_pedido.php">Novo Arquivo</a>
+
+
+                </div>
+
+                <div id="tela-principal" class="col-md-10 ">
+
+
+
+                    <div class="col-md-12 " id="estatisticas-superior"  >
+                        <div class="col-md-12" style="text-align: center;"> <h3>Estatísticas</h3></div>
+
+                        <div style="background:#DF013A;" class="col-md-3 blocos-estatistica "> </div>
+
+                        <div style="background:#1C82E0;" class="col-md-3 blocos-estatistica"> </div>
+
+                        <div style="background:#EBEF13;" class="col-md-3 blocos-estatistica"> </div>
+
+                        <div  style="background:#10BE07;" class="col-md-3 blocos-estatistica"> </div>           
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="col-md-12 " id="graficos"  >
+
+                            <center>GRAFICOS</center>
+
+                        </div>
+
+                        <div class="col-md-12 " id="estatisticas-inferior"  >
+
+                            <center>ESTATISTICAS INFERIOR</center>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 " id="tabela-usuarios"  >
+
+                        <center>TABELA USUARIOS</center>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    <!-- Modal de Edição  -->
+    <div id="myModalEdit" class="modal fade in">
         <div class="modal-dialog">
             <div class="modal-content">
- 
+
                 <div class="modal-header">
-                 <center> <h3>Editar Proprietarios</h3></center> 
+                    <center> <h3>Editar Proprietarios</h3></center> 
                 </div>
                 <div id="modal-body-edit" class="modal-body">
-          
+
                 </div>
 
-               
-                </div>
- 
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dalog -->
-    </div><!-- /.modal -->
-     
-      
+
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dalog -->
+</div><!-- /.modal -->
+
+
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="Ajax/ajax.js"> </script>
- <!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
 
