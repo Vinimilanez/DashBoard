@@ -5,11 +5,15 @@
  */
 package br.com.powerrangers.Dashboard;
 
-import br.com.powerrangers.Dashboard.model.Arquivo;
+import br.com.powerrangers.Dashboard.Service.UsuarioService;
 import br.com.powerrangers.Dashboard.model.Usuario;
-import br.com.powerrangers.Dashboard.repository.ArquivoRepository;
 import br.com.powerrangers.Dashboard.repository.UsuarioRepository;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,19 +24,12 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class indexController {
-    UsuarioRepository ur;
-    ArquivoRepository ar;
-    @RequestMapping("/")
-    public ModelAndView index() {
-        
-        ModelAndView mv = new ModelAndView("index");
-        
-        Iterable<Usuario> usuario  = ur.findAll();
-        mv.addObject("usuario",usuario);
-        
-        
-        return mv;
+    
+    @GetMapping("/")
+    public String carregaIndex(){
+        return "index";
     }
-
-   
+    
+ 
+             
 }

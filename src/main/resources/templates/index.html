@@ -1,5 +1,6 @@
 
 <!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html>
     <head>
         <title>Dashboard</title>
@@ -158,15 +159,15 @@
                             
                         </form>
                     </div>
-                    <a onclick="NovoUsuario()()">Novo Usuário</a>
+                    <a onclick="NovoUsuario()">Novo Usuário</a>
                       <div id="cadastro-usuario" style="display: none;" class="col-md-12">
-                        <form method="POST">
+                        <form th:action="@{/CadastrarUsuario}" method="POST">
                             
                             <input style="margin-bottom: 5px;" name="nome" type="text" class="form-control" placeholder="Nome " > 
-                            <input style="margin-bottom: 5px;" name="pais" type="text" class="form-control" placeholder="País:" >
-                            <input style="margin-bottom: 5px;" name="lingua" type="text" class="form-control" placeholder="Lingua:" >
-                            <input style="margin-bottom: 5px;"  name="idade"type="text" class="form-control" placeholder="Idade:" >
-                            <input style="width: 100%;" type="button" class="btn btn-success" value="Salvar">
+                            <input   style="margin-bottom: 5px;" name="pais" type="text" class="form-control" placeholder="País:" >
+                            <input   style="margin-bottom: 5px;" name="lingua" type="text" class="form-control" placeholder="Lingua:" >
+                            <input style="margin-bottom: 5px;"  name="idade" type="text" class="form-control" placeholder="Idade:" >
+                            <input  style="width: 100%;" type="submit" class="btn btn-success" value="Salvar">
                             
                         </form>
                     </div>
