@@ -1,236 +1,229 @@
 
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html>
-    <head>
-        <title>Dashboard</title>
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
-              rel="stylesheet">
-        <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-
-        <style type="text/css">
-
-            html,body, .container-fluid{
-                height: 100%;
-                overflow: auto; 
-
-            }
-
-            /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-            @media screen and (max-width: 1000px) {
-                .sidenav {padding-top: 15px;}
-                .sidenav a {font-size: 18px;}
-                .sidenav {height: 200px;}
-                .sidenav {text-align: center;}
-
-
-
-
-            }
-
-            body{
-                background: #c8c8c8;
-                background-attachment: fixed; 
-                font-family: Helvetica,Arial,Sans-serif; 
-                overflow-x: hidden;
-                background-size: 100%;
-                color: black;
-                font-size: 15px;
-                overflow: auto;
-            }
-
-            #tela-principal{
-                background: #c8c8c8;
-                color: black;
-                height: 100%;
-                padding: 5px;
-                overflow: auto;
-            }
-
-            #estatisticas-superior{
-                margin-bottom: 20px;
-            }
-            a{
-               cursor: pointer; 
-            }
-            #graficos{
-                background: white;
-                color: black;
-                padding: 5px;
-                height: 300px;
-                border: 2px solid #c8c8c8;
-            }
-
-            #estatisticas-inferior{
-                background: white;
-                color: black;
-                padding: 5px;
-                height: 300px;
-                border: 2px solid #c8c8c8;
-            }
-
-            #tabela-usuarios{
-                background: white;
-                color: black;
-                padding: 5px;
-                height: 600px;
-                border: 2px solid #c8c8c8;
-            }
-
-
-
-            .blocos-estatistica{
-                height: 180px;
-                border: 5px solid #c8c8c8 ;
-
-            }
-
-
-
-            /* The sidebar menu */
-            .sidenav {
-                text-align: left;
-                background-color: #FFFFFF; /* Black */
-                overflow-x: hidden; /* Disable horizontal scroll */
-                padding-top: 20px;
-                height: 100%;
-            }
-
-            /* The navigation menu links */
-            .sidenav a {
-                padding: 20px 8px 6px 16px;
-                text-decoration: none;
-                color: black;
-                display: block;
-            }
+    <html>
+        <head>
+            <title>Dashboard</title>
+            <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+                <meta charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                            <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+                                  rel="stylesheet">
+                                <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+                                <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+
+                                <style type="text/css">
+
+                                    html,body, .container-fluid{
+                                        height: 100%;
+                                        overflow: auto; 
+
+                                    }
+
+                                    /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+                                    @media screen and (max-width: 1000px) {
+                                        .sidenav {padding-top: 15px;}
+                                        .sidenav a {font-size: 18px;}
+                                        .sidenav {height: 200px;}
+                                        .sidenav {text-align: center;}
+
+
+
+
+                                    }
+
+                                    body{
+                                        background: #c8c8c8;
+                                        background-attachment: fixed; 
+                                        font-family: Helvetica,Arial,Sans-serif; 
+                                        overflow-x: hidden;
+                                        background-size: 100%;
+                                        color: black;
+                                        font-size: 15px;
+                                        overflow: auto;
+                                    }
+
+                                    #tela-principal{
+                                        background: #c8c8c8;
+                                        color: black;
+                                        height: 100%;
+                                        padding: 5px;
+                                        overflow: auto;
+                                    }
+
+                                    #estatisticas-superior{
+                                        margin-bottom: 20px;
+                                    }
+                                    a{
+                                        cursor: pointer; 
+                                    }
+                                    #graficos{
+                                        background: white;
+                                        color: black;
+                                        padding: 5px;
+                                        height: 300px;
+                                        border: 2px solid #c8c8c8;
+                                    }
+
+                                    #estatisticas-inferior{
+                                        background: white;
+                                        color: black;
+                                        padding: 5px;
+                                        height: 300px;
+                                        border: 2px solid #c8c8c8;
+                                    }
 
-            /* When you mouse over the navigation links, change their color */
-            .sidenav a:hover {
-                color: green;
-            }
+                                    #tabela-usuarios{
+                                        background: white;
+                                        color: black;
+                                        padding: 5px;
+                                        height: 600px;
+                                        border: 2px solid #c8c8c8;
+                                    }
 
-        </style>
 
-        <script type="text/javascript">
-           
-           function NovoArquivo(){
-             
-       if(document.getElementById("cadastro-arquivo").style.display === "none"){
-            document.getElementById("cadastro-arquivo").style.display = 'block';
-       }else{
-            document.getElementById("cadastro-arquivo").style.display = 'none';
-       }
-    
-       }
-       
-              function NovoUsuario(){
-             
-       if(document.getElementById("cadastro-usuario").style.display === "none"){
-            document.getElementById("cadastro-usuario").style.display = 'block';
-       }else{
-            document.getElementById("cadastro-usuario").style.display = 'none';
-       }
-    
-       }
-       
-        </script>
 
-    </head>
+                                    .blocos-estatistica{
+                                        height: 180px;
+                                        border: 5px solid #c8c8c8 ;
 
-    <body>
+                                    }
 
-        <div class="container-fluid">
-            <div  class="row" style="height: 100% ;" > 
 
-                <div class="col-md-2 sidenav"  >
-                    <a class="glyphicon glyphicon-dashboard" href="central.php"> <span style="font-size: 20px;">Dashboard</span></a> <br>
-                    <a id="btn-novo-arquivo" onclick="NovoArquivo()" >Novo Arquivo</a>
-                    <div id="cadastro-arquivo" style="display: none;" class="col-md-12">
-                        <form method="POST">
-                            
-                            <input style="margin-bottom: 5px;" name="pais" type="text" class="form-control" placeholder="Nome do Arquivo:" > 
-                            <input style="width: 100%;" type="button" class="btn btn-success" value="Salvar">
-                            
-                        </form>
-                    </div>
-                    <a onclick="NovoUsuario()">Novo Usuário</a>
-                      <div id="cadastro-usuario" style="display: none;" class="col-md-12">
-                        <form th:action="@{/CadastrarUsuario}" method="POST">
-                            
-                            <input style="margin-bottom: 5px;" name="nome" type="text" class="form-control" placeholder="Nome " > 
-                            <input   style="margin-bottom: 5px;" name="pais" type="text" class="form-control" placeholder="País:" >
-                            <input   style="margin-bottom: 5px;" name="lingua" type="text" class="form-control" placeholder="Lingua:" >
-                            <input style="margin-bottom: 5px;"  name="idade" type="text" class="form-control" placeholder="Idade:" >
-                            <input  style="width: 100%;" type="submit" class="btn btn-success" value="Salvar">
-                            
-                        </form>
-                    </div>
 
+                                    /* The sidebar menu */
+                                    .sidenav {
+                                        text-align: left;
+                                        background-color: #FFFFFF; /* Black */
+                                        overflow-x: hidden; /* Disable horizontal scroll */
+                                        padding-top: 20px;
+                                        height: 100%;
+                                    }
 
-                </div>
+                                    /* The navigation menu links */
+                                    .sidenav a {
+                                        padding: 20px 8px 6px 16px;
+                                        text-decoration: none;
+                                        color: black;
+                                        display: block;
+                                    }
 
-                <div id="tela-principal" class="col-md-10 ">
+                                    /* When you mouse over the navigation links, change their color */
+                                    .sidenav a:hover {
+                                        color: green;
+                                    }
 
+                                </style>
 
+                                <script type="text/javascript">
 
-                    <div class="col-md-12 " id="estatisticas-superior"  >
-                        <div class="col-md-12" style="text-align: center;"> <h3>Estatísticas</h3></div>
+                                    function NovoArquivo(){
 
-                        <div style="background:#DF013A;" class="col-md-3 blocos-estatistica "> </div>
+                                    if(document.getElementById("cadastro-arquivo").style.display === "none"){
+                                    document.getElementById("cadastro-arquivo").style.display = 'block';
+                                    }else{
+                                    document.getElementById("cadastro-arquivo").style.display = 'none';
+                                    }
 
-                        <div style="background:#1C82E0;" class="col-md-3 blocos-estatistica"> </div>
+                                    }
 
-                        <div style="background:#EBEF13;" class="col-md-3 blocos-estatistica"> </div>
+                                    function NovoUsuario(){
 
-                        <div  style="background:#10BE07;" class="col-md-3 blocos-estatistica"> </div>           
+                                    if(document.getElementById("cadastro-usuario").style.display === "none"){
+                                    document.getElementById("cadastro-usuario").style.display = 'block';
+                                    }else{
+                                    document.getElementById("cadastro-usuario").style.display = 'none';
+                                    }
 
-                    </div>
+                                    }
 
-                    <div class="col-md-6">
+                                </script>
 
-                        <div class="col-md-12 " id="graficos"  >
+                                </head>
 
-                            <center>GRAFICOS</center>
+                                <body>
 
-                        </div>
+                                    <div class="container-fluid">
+                                        <div  class="row" style="height: 100% ;" > 
 
-                        <div class="col-md-12 " id="estatisticas-inferior"  >
+                                            <div class="col-md-2 sidenav"  >
+                                                <a class="glyphicon glyphicon-dashboard" href="central.php"> <span style="font-size: 20px;">Dashboard</span></a> <br>
+                                                    <a id="btn-novo-arquivo" onclick="NovoArquivo()" >Novo Arquivo</a>
+                                                    <div id="cadastro-arquivo" style="display: none;" class="col-md-12">
+                                                        <form method="POST">
 
-                            <center>ESTATISTICAS INFERIOR</center>
+                                                            <input style="margin-bottom: 5px;" name="pais" type="text" class="form-control" placeholder="Nome do Arquivo:" > 
+                                                                <input style="width: 100%;" type="button" class="btn btn-success" value="Salvar">
 
-                        </div>
+                                                                    </form>
+                                                                    </div>
+                                                                    <a onclick="NovoUsuario()">Novo Usuário</a>
+                                                                    <div id="cadastro-usuario" style="display: none;" class="col-md-12">
+                                                                        <a href="usuario"><input style="width: 100%;" type="submit" class="btn btn-success" value="Salvar"></a>
+                                                                                                  
+                                                                                                    </div>
 
-                    </div>
 
-                    <div class="col-md-6 " id="tabela-usuarios"  >
+                                                                                                    </div>
 
-                        <center>TABELA USUARIOS</center>
+                                                                                                    <div id="tela-principal" class="col-md-10 ">
 
-                    </div>
 
 
+                                                                                                        <div class="col-md-12 " id="estatisticas-superior"  >
+                                                                                                            <div class="col-md-12" style="text-align: center;"> <h3>Estatísticas</h3></div>
 
+                                                                                                            <div style="background:#DF013A;" class="col-md-3 blocos-estatistica "> </div>
 
+                                                                                                            <div style="background:#1C82E0;" class="col-md-3 blocos-estatistica"> </div>
 
+                                                                                                            <div style="background:#EBEF13;" class="col-md-3 blocos-estatistica"> </div>
 
-                </div>
+                                                                                                            <div  style="background:#10BE07;" class="col-md-3 blocos-estatistica"> </div>           
 
-            </div>
+                                                                                                        </div>
 
+                                                                                                        <div class="col-md-6">
 
+                                                                                                            <div class="col-md-12 " id="graficos"  >
 
+                                                                                                                <center>GRAFICOS</center>
 
+                                                                                                            </div>
 
+                                                                                                            <div class="col-md-12 " id="estatisticas-inferior"  >
 
+                                                                                                                <center>ESTATISTICAS INFERIOR</center>
 
-        </div>
-    </body>
+                                                                                                            </div>
 
+                                                                                                        </div>
 
-</html>
+                                                                                                        <div class="col-md-6 " id="tabela-usuarios"  >
+
+                                                                                                            <center>TABELA USUARIOS</center>
+
+                                                                                                        </div>
+
+
+
+
+
+
+                                                                                                    </div>
+
+                                                                                                    </div>
+
+
+
+
+
+
+
+                                                                                                    </div>
+                                                                                                    </body>
+
+
+                                                                                                    </html>

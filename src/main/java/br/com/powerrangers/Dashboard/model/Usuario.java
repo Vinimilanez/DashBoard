@@ -18,7 +18,6 @@ import javax.validation.constraints.NotEmpty;
 public class Usuario implements Serializable {
 
     @Id
-    @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idUsuario;
     @NotEmpty
@@ -30,7 +29,6 @@ public class Usuario implements Serializable {
     @NotEmpty
     @Column
     private String lingua;
-    @NotEmpty
     @Column
     private int idade;
     @NotEmpty
@@ -116,4 +114,19 @@ public class Usuario implements Serializable {
         this.idade = idade;
     }
 
+    public Usuario(int idUsuario, String nome, String pais, String lingua, int idade, String status, List<Acesso> acessos, List<Download> downloads, List<Upload> upload) {
+        this.idUsuario = idUsuario;
+        this.nome = nome;
+        this.pais = pais;
+        this.lingua = lingua;
+        this.idade = idade;
+        this.status = status;
+        this.acessos = acessos;
+        this.downloads = downloads;
+        this.upload = upload;
+    }
+
+    public Usuario() {
+    }
+    
 }
