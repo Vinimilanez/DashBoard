@@ -1,31 +1,67 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Cadastro de Investidores</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <form action='/userAdd' method="POST">
-
-            <input style="margin-bottom: 5px;" name="nome" type="text" class="form-control" placeholder="Nome: " > 
-            <input style="margin-bottom: 5px;" name="pais" type="text" class="form-control" placeholder="País:" >
-            <input style="margin-bottom: 5px;" name="lingua" type="text" class="form-control" placeholder="Lingua:" >
-            <input style="margin-bottom: 5px;"  name="idade" type="number" class="form-control" placeholder="Idade:" >
-            <input style="margin-bottom: 5px;"  name="status" type="text" class="form-control" placeholder="Status:" >
-            <input style="width: 100%;" type="submit" class="btn btn-success" value="Salvar">
-        </form>
-
-  
-
-
-</body>
-
-
-
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Cadastro de usuario</strong>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" th:object="${usuario}" th:action="@{/save}" method="POST" style="margin: 10px">
+                    <div class="form-group">
+                        <fieldset>
+                            <div class="form-group row">
+                                <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+                                    <div th:each="detailedError : ${#fields.detailedErrors()}">
+                                        <span th:text="${detailedError.message}"></span>
+                                    </div>
+                                </div>
+                            </div> 					
+                            <div class="form-group row">                                                          
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+                                    <label>Nome</label>
+                                    <input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Nome.." maxlength="50"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('pais')}? 'has-error'">
+                                    <label>Pais</label> 
+                                    <input type="text" class="form-control input-sm" th:field="*{pais}" maxlength="150" placeholder="Pais.."/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('idade')}? 'has-error'">
+                                    <label>Idade</label> 
+                                    <input type="text" class="form-control input-sm" th:field="*{idade}" maxlength="3" placeholder="Idade.."/>
+                                </div>
+                            </div>						
+                            <div class="form-group row">
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('lingua')}? 'has-error'">
+                                    <label>Lingua</label>
+                                    <input type="text" class="form-control input-sm" th:field="*{lingua}" maxlength="11" placeholder="lingua.."/>
+                                </div>
+                            </div>	
+                            <div class="form-group row">
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('status')}? 'has-error'">
+                                    <label>status</label>
+                                    <input type="text" class="form-control input-sm" th:field="*{status}" maxlength="10" placeholder="status.."/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="form-group row">
+                        <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                        <a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

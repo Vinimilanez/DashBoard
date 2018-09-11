@@ -3,37 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.powerrangers.Dashboard;
+package br.com.powerrangers.Dashboard.controller;
 
 import br.com.powerrangers.Dashboard.Service.UsuarioService;
 import br.com.powerrangers.Dashboard.model.Usuario;
 import br.com.powerrangers.Dashboard.repository.UsuarioRepository;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
  * @author vinic
  */
 @Controller
-public class indexController {
+public class UsuarioController {
     
+    @Autowired
+     UsuarioService us;
     
-    
-    @RequestMapping("/")
-    public String carregaIndex(){
-        return "index";
-    }
-    
-    
- 
-             
+
+
 }

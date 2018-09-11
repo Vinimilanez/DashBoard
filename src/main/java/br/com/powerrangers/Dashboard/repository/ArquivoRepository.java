@@ -18,7 +18,6 @@ import org.springframework.stereotype.Repository;
  * @author vinic
  */
 @Repository
-public interface ArquivoRepository extends JpaRepository<Arquivo,Long> {
-
+public interface ArquivoRepository extends JpaRepository <Arquivo,Long> {
 
 }
