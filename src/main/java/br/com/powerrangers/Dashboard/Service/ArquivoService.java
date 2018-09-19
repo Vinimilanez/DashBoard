@@ -26,7 +26,7 @@ public class ArquivoService {
     }
     
      public Arquivo save(Arquivo arquivo) {
-        return repository.saveAndFlush(arquivo); 
+        return repository.save(arquivo); 
     }
 
 }

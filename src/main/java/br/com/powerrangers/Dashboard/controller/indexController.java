@@ -63,44 +63,9 @@ public class indexController {
     @Autowired
     private UploadRepository upr;
 
+   //-----------------------INDEX-MAPPING---------------------------------------
     
-
-   
-    @PostMapping("/save")
-        public ModelAndView save(@Valid Arquivo arquivo, BindingResult result) {
-		
-		if(result.hasErrors()) {
-			return add(arquivo);
-		}
-		
-		as.save(arquivo);
-		
-		return findAll();
-	}
-        
-        
-        @GetMapping("/cad")
-	public ModelAndView add(Arquivo arquivo) {
-		
-		ModelAndView mv = new ModelAndView("/cad");
-		mv.addObject("arquivo", arquivo);
-		
-		return mv;
-	}
-    
-    @PostMapping("/save")
-	public ModelAndView save(@Valid Usuario usuario, BindingResult result) {
-		
-		if(result.hasErrors()) {
-			return add(usuario);
-		}
-		
-		us.save(usuario);
-		
-		return findAll();
-	}
-        
-        @GetMapping("/index")
+    @GetMapping("/index")
 	public ModelAndView findAll() {
 		
 		ModelAndView mv = new ModelAndView("/index");
@@ -112,13 +77,62 @@ public class indexController {
 		return mv;
 	}
         
-        @GetMapping("/cad")
+    
+    
+    
+    
+
+   //---------------------------USER-CODE---------------------------------------
+    
+    
+    
+        @PostMapping("/saveUser")
+	public ModelAndView save(@Valid Usuario usuario, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return add(usuario);
+		}
+		
+		us.save(usuario);
+		
+		return findAll();
+	}
+        
+        
+        @GetMapping("/cadUser")
 	public ModelAndView add(Usuario usuario) {
 		
-		ModelAndView mv = new ModelAndView("/cad");
+		ModelAndView mv = new ModelAndView("/cadUser");
 		mv.addObject("usuario", usuario);
 		
 		return mv;
 	}
-    
+        
+        
+        
+        
+    //---------------------------FILE-CODE--------------------------------------
+        
+        @PostMapping("/saveArquivo")
+	public ModelAndView save(@Valid Arquivo arquivo, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return add(arquivo);
+		}
+		
+		as.save(arquivo);
+		
+		return findAll();
+	}    
+        
+        @GetMapping("/cadArquivo")
+	public ModelAndView add(Arquivo arquivo) {
+		
+		ModelAndView mv = new ModelAndView("/cadArquivo");
+		mv.addObject("arquivo", arquivo);
+		
+		return mv;
+	}
+
+
 }

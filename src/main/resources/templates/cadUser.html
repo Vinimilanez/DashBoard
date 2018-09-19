@@ -14,7 +14,7 @@
                 <strong>Cadastro de usuario</strong>
             </div>
             <div class="panel-body">
-                <form class="form-horizontal" th:object="${usuario}" th:action="@{/save}" method="POST" style="margin: 10px">
+                <form class="form-horizontal" th:object="${usuario}" th:action="@{/saveUser}" method="POST" style="margin: 10px">
                     <div class="form-group">
                         <fieldset>
                             <div class="form-group row">
@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group row">
                         <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-                        <a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+                        <a th:href="@{/index}" class="btn btn-sm btn-default">Cancelar</a>
                     </div>
                 </form>
             </div>
