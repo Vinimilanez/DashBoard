@@ -66,6 +66,27 @@ public class indexController {
     
 
    
+    @PostMapping("/save")
+        public ModelAndView save(@Valid Arquivo arquivo, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return add(arquivo);
+		}
+		
+		as.save(arquivo);
+		
+		return findAll();
+	}
+        
+        
+        @GetMapping("/cad")
+	public ModelAndView add(Arquivo arquivo) {
+		
+		ModelAndView mv = new ModelAndView("/cad");
+		mv.addObject("arquivo", arquivo);
+		
+		return mv;
+	}
     
     @PostMapping("/save")
 	public ModelAndView save(@Valid Usuario usuario, BindingResult result) {
@@ -84,7 +105,10 @@ public class indexController {
 		
 		ModelAndView mv = new ModelAndView("/index");
 		mv.addObject("usuarios", us.findAll());
+                
+		mv.addObject("arquivos", as.findAll());
 		
+
 		return mv;
 	}
         
