@@ -21,8 +21,12 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository repository;
     
-    public List<Usuario> findAll(){
+    public List<Usuario> findAll(){ 
        return repository.findAll();
+    }
+    
+    public int sizeUser(){
+        return repository.findAll().size();
     }
     
     public Usuario save(Usuario usuario) {

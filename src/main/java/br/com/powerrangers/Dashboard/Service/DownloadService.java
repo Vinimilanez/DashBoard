@@ -28,5 +28,9 @@ public class DownloadService {
     public Download save(Download download) {
         return repository.saveAndFlush(download); 
     }
+    
+     public int sizeDownload(){
+        return repository.findAll().size();
+    }
 
 }

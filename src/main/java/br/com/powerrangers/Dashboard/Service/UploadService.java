@@ -28,4 +28,8 @@ public class UploadService {
     public Upload save(Upload download) {
         return repository.saveAndFlush(download); 
     }
+    
+     public int sizeUpload(){
+        return repository.findAll().size();
+    }
 }

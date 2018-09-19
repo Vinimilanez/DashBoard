@@ -70,7 +70,10 @@ public class indexController {
 		
 		ModelAndView mv = new ModelAndView("/index");
 		mv.addObject("usuarios", us.findAll());
-                
+                mv.addObject("usuariosestatisticas", us.sizeUser());
+                mv.addObject("arquivosestatisticas", as.sizeArquivo());
+                mv.addObject("downloadsestatisticas", ds.sizeDownload());
+                mv.addObject("uploadsestatisticas", ups.sizeUpload());
 		mv.addObject("arquivos", as.findAll());
 		
 

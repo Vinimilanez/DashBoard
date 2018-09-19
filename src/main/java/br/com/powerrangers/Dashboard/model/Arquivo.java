@@ -32,8 +32,6 @@ public class Arquivo implements Serializable {
     private List<Acesso> acessos;
     @OneToMany(fetch = FetchType.LAZY)
     private List<Download> download;
-    @OneToOne(fetch = FetchType.LAZY)
-    private Upload upload;
 
     public List<Acesso> getAcessos() {
         return acessos;
@@ -51,13 +49,7 @@ public class Arquivo implements Serializable {
         this.download = download;
     }
 
-    public Upload getUpload() {
-        return upload;
-    }
 
-    public void setUpload(Upload upload) {
-        this.upload = upload;
-    }
 
     public void setIdArquivo(int idArquivo) {
         this.idArquivo = idArquivo;
