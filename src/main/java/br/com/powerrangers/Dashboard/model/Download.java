@@ -18,21 +18,18 @@ import javax.validation.constraints.NotEmpty;
 public class Download implements Serializable {
 
     @Id
-    @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idDownload;
     @NotEmpty
     @Column
-    private Date data;
+    private String data;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_arquivo")
     private Arquivo arquivo;
-    @NotEmpty
-    @Column
-    private String status;
+    
 
     public int getIdDownload() {
         return idDownload;
@@ -40,16 +37,6 @@ public class Download implements Serializable {
 
     public void setIdDownload(int idDownload) {
         this.idDownload = idDownload;
-    }
-
-    
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public Usuario getUsuario() {
@@ -68,12 +55,13 @@ public class Download implements Serializable {
         this.arquivo = arquivo;
     }
 
-    public String getStatus() {
-        return status;
+    public String getData() {
+        return data;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setData(String data) {
+        this.data = data;
     }
+    
 
 }

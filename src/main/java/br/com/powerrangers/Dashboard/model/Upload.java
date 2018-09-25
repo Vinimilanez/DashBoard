@@ -18,12 +18,10 @@ import javax.validation.constraints.NotEmpty;
 public class Upload implements Serializable {
 
     @Id
-    @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idUpload;
-    @NotEmpty
     @Column
-    private Date data;
+    private String data;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
@@ -43,11 +41,11 @@ public class Upload implements Serializable {
         this.idUpload = idUpload;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 

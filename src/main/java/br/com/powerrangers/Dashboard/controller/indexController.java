@@ -10,7 +10,10 @@ import br.com.powerrangers.Dashboard.Service.ArquivoService;
 import br.com.powerrangers.Dashboard.Service.DownloadService;
 import br.com.powerrangers.Dashboard.Service.UploadService;
 import br.com.powerrangers.Dashboard.Service.UsuarioService;
+import br.com.powerrangers.Dashboard.model.Acesso;
 import br.com.powerrangers.Dashboard.model.Arquivo;
+import br.com.powerrangers.Dashboard.model.Download;
+import br.com.powerrangers.Dashboard.model.Upload;
 import br.com.powerrangers.Dashboard.model.Usuario;
 import br.com.powerrangers.Dashboard.repository.AcessoRepository;
 import br.com.powerrangers.Dashboard.repository.ArquivoRepository;
@@ -48,7 +51,7 @@ public class indexController {
     @Autowired
     private UploadService ups;
     
-    @Autowired
+   /* @Autowired
     private ArquivoRepository ar;
     
     @Autowired
@@ -61,9 +64,10 @@ public class indexController {
     private DownloadRepository dr;
 
     @Autowired
-    private UploadRepository upr;
+    private UploadRepository upr;*/
 
    //-----------------------INDEX-MAPPING---------------------------------------
+    
     
     @GetMapping("/index")
 	public ModelAndView findAll() {
@@ -75,6 +79,9 @@ public class indexController {
                 mv.addObject("downloadsestatisticas", ds.sizeDownload());
                 mv.addObject("uploadsestatisticas", ups.sizeUpload());
 		mv.addObject("arquivos", as.findAll());
+                mv.addObject("uploads",ups.findAll());
+                mv.addObject("downloads",ds.findAll());
+                mv.addObject("acessos", acs.findAll());
 		
 
 		return mv;
@@ -85,7 +92,7 @@ public class indexController {
     
     
 
-   //---------------------------USER-CODE---------------------------------------
+   //---------------------------USER-CONTROLLER---------------------------------
     
     
     
@@ -114,7 +121,7 @@ public class indexController {
         
         
         
-    //---------------------------FILE-CODE--------------------------------------
+    //---------------------------FILE-CONTROLLER--------------------------------
         
         @PostMapping("/saveArquivo")
 	public ModelAndView save(@Valid Arquivo arquivo, BindingResult result) {
@@ -136,6 +143,67 @@ public class indexController {
 		
 		return mv;
 	}
-
-
+    //-----------------------------UPLOAD-CONTROLLER----------------------------
+        
+        @PostMapping("/saveUpload")
+        public ModelAndView save (@Valid Upload upload , BindingResult result){
+            if (result.hasErrors()) {
+                return add(upload);
+            }
+            ups.save(upload);
+            
+            return findAll();
+        
+        }
+        
+        @GetMapping("cadUpload")
+        public ModelAndView add(Upload upload){
+           
+            ModelAndView mv = new ModelAndView("/cadUpload");
+            mv.addObject("upload",upload);
+            
+            return mv;
+        }
+    //-----------------------------ACESSO-CONTROLLER----------------------------
+        
+        @PostMapping("/saveAcesso")
+        public ModelAndView save (@Valid Acesso acesso , BindingResult result){
+            if (result.hasErrors()) {
+                return add(acesso);
+            }
+            acs.save(acesso);
+            
+            return findAll();
+        
+        }
+        
+        @GetMapping("cadAcesso")
+        public ModelAndView add(Acesso acesso){
+           
+            ModelAndView mv = new ModelAndView("/cadAcesso");
+            mv.addObject("upload",acesso);
+            
+            return mv;
+        }
+    //-----------------------------DOWNLOAD-CONTROLLER--------------------------
+        
+        @PostMapping("/saveDownload")
+        public ModelAndView save (@Valid Download download , BindingResult result){
+            if (result.hasErrors()) {
+                return add(download);
+            }
+            ds.save(download);
+            
+            return findAll();
+        
+        }
+        
+        @GetMapping("cadDownload")
+        public ModelAndView add(Download download){
+           
+            ModelAndView mv = new ModelAndView("/cadDownload");
+            mv.addObject("download",download);
+            
+            return mv;
+        }    
 }

@@ -18,7 +18,6 @@ import javax.validation.constraints.NotEmpty;
 public class Arquivo implements Serializable {
 
     @Id
-    @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idArquivo;
     @NotEmpty
@@ -49,8 +48,6 @@ public class Arquivo implements Serializable {
         this.download = download;
     }
 
-
-
     public void setIdArquivo(int idArquivo) {
         this.idArquivo = idArquivo;
     }
@@ -71,4 +68,12 @@ public class Arquivo implements Serializable {
         this.status = status;
     }
 
+    public long getIdArquivo() {
+        return idArquivo;
+    }
+
+    public void setIdArquivo(long idArquivo) {
+        this.idArquivo = idArquivo;
+    }
+    
 }

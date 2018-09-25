@@ -18,12 +18,11 @@ import javax.validation.constraints.NotEmpty;
 public class Acesso implements Serializable {
 
     @Id
-    @NotEmpty
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idAcesso;
     @NotEmpty
     @Column
-    private Date data;
+    private String data;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private Usuario usuarios;
@@ -55,13 +54,15 @@ public class Acesso implements Serializable {
         this.idAcesso = idAcesso;
     }
 
-
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
+
+
+    
 
 }
