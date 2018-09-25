@@ -35,9 +35,9 @@
                                     <label>Usuario</label> 
                                     <select name="usuario" id="usuario" class="form-control" th:field="*{usuario}">
                                         <option value="">Selecione o usuario</option>
-                                        <option th:each="usuario: ${usuarios}"
-                                                th:value="${usuario}" 
-                                                th:text="#{usuario.${usuario.nome}}" ></option>
+                                        <option th:each="usuarios: ${usuario}"
+                                                th:value="${usuarios}" 
+                                                th:text="${usuarios.nome}" ></option>
                                     </select>
                                 </div>
                             </div>
@@ -46,9 +46,9 @@
                                     <label>Arquivo</label> 
                                     <select name="arquivo" id="arquivo" class="form-control" th:field="*{arquivo}">
                                         <option value="">Selecione o arquivo</option>
-                                        <option th:each="arquivo: ${arquivos}"
-                                                th:value="${arquivo}" 
-                                                th:text="#{arquivo.${arquivo.nome}}" ></option>
+                                        <option th:each="arquivos: ${arquivo}"
+                                                th:value="${arquivos}" 
+                                                th:text="${arquivos.nome}" ></option>
                                     </select>                                
                                 </div>
                             </div>                           

@@ -6,7 +6,6 @@
 package br.com.powerrangers.Dashboard.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -61,8 +60,5 @@ public class Acesso implements Serializable {
     public void setData(String data) {
         this.data = data;
     }
-
-
-    
 
 }

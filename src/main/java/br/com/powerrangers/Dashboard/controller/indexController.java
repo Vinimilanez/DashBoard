@@ -15,19 +15,12 @@ import br.com.powerrangers.Dashboard.model.Arquivo;
 import br.com.powerrangers.Dashboard.model.Download;
 import br.com.powerrangers.Dashboard.model.Upload;
 import br.com.powerrangers.Dashboard.model.Usuario;
-import br.com.powerrangers.Dashboard.repository.AcessoRepository;
-import br.com.powerrangers.Dashboard.repository.ArquivoRepository;
-import br.com.powerrangers.Dashboard.repository.DownloadRepository;
-import br.com.powerrangers.Dashboard.repository.UploadRepository;
-import br.com.powerrangers.Dashboard.repository.UsuarioRepository;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 /**
  *
@@ -51,20 +44,6 @@ public class indexController {
     @Autowired
     private UploadService ups;
     
-   /* @Autowired
-    private ArquivoRepository ar;
-    
-    @Autowired
-    private AcessoRepository acr;
-
-    @Autowired
-    private UsuarioRepository ur;
-
-    @Autowired
-    private DownloadRepository dr;
-
-    @Autowired
-    private UploadRepository upr;*/
 
    //-----------------------INDEX-MAPPING---------------------------------------
     
@@ -118,6 +97,7 @@ public class indexController {
 		ModelAndView mv = new ModelAndView("/cadUser");
 		mv.addObject("usuario", usuario);
 		
+                
 		return mv;
 	}
         
@@ -143,6 +123,7 @@ public class indexController {
 		
 		ModelAndView mv = new ModelAndView("/cadArquivo");
 		mv.addObject("arquivo", arquivo);
+                
 		
 		return mv;
 	}
@@ -164,6 +145,8 @@ public class indexController {
            
             ModelAndView mv = new ModelAndView("/cadUpload");
             mv.addObject("upload",upload);
+            mv.addObject("usuario",us.findAll());
+            mv.addObject("arquivo",as.findAll());
             
             return mv;
         }
@@ -184,7 +167,9 @@ public class indexController {
         public ModelAndView add(Acesso acesso){
            
             ModelAndView mv = new ModelAndView("/cadAcesso");
-            mv.addObject("upload",acesso);
+            mv.addObject("acesso",acesso);
+            mv.addObject("usuario",us.findAll());
+            mv.addObject("arquivo",as.findAll());
             
             return mv;
         }
@@ -206,6 +191,8 @@ public class indexController {
            
             ModelAndView mv = new ModelAndView("/cadDownload");
             mv.addObject("download",download);
+            mv.addObject("usuario",us.findAll());
+            mv.addObject("arquivo",as.findAll());
             
             return mv;
         }    
