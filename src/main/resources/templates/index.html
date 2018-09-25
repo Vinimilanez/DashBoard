@@ -14,41 +14,82 @@
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
                                 <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
                                 <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-                                
-                                <script type="text/javascript">
-                                
-                               $(document).ready(function(){
 
-	             window.onload= function(){
-                         var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
+                                <script type="text/javascript"  th:inline="javascript">
 
-    // The data for our dataset
-    data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'orange',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    },
+                                    $(document).ready(function () {
 
-    // Configuration options go here
-    options: {}
-});
-                         
-                       };
+                                        window.onload = function () {
+
+                                            var acessoestemes = [[${acessosGrafico}
+                                            ]];
+                                                    var acessospassados = [[${acessosGrafico2}
+                                                    ]];
 
 
+                                            var ctx = document.getElementById('myChart').getContext('2d');
+                                            var chart = new Chart(ctx, {
+                                                // The type of chart we want to create
+                                                type: 'line',
+
+                                                // The data for our dataset
+                                                data: {
+                                                    labels: ["Mês Passado ", "Mês Atual"],
+                                                    datasets: [{
+                                                            label: "Quantidade de Acessos ",
+                                                            backgroundColor: 'rgb(255, 99, 132)',
+                                                            borderColor: 'orange',
+                                                            data: [acessospassados, acessoestemes],
+                                                        }]
+                                                },
+
+                                                // Configuration options go here
+                                                options: {}
+                                            });
+
+                                            var dowload = [[${downloadsestatisticas}
+                                            ]];
+                                                    var upload = [[${uploadsestatisticas}
+                                                    ]];
+                                                    var arquivos = [[${arquivosestatisticas}
+                                                    ]];
 
 
-                    });
 
-                                
-                                
+                                            var ctx = document.getElementById('myChart2').getContext('2d');
+                                            var chart = new Chart(ctx, {
+                                                // The type of chart we want to create
+                                                type: 'pie',
+
+                                                // The data for our dataset
+                                                data: {
+                                                    labels: ["Downloads", "Uploads", "Arquivos"],
+                                                    datasets: [{
+                                                            label: "My First dataset",
+                                                            backgroundColor: ['orange', 'red', 'blue'],
+                                                            borderColor: 'orange',
+                                                            data: [dowload, upload, arquivos],
+                                                        }]
+                                                },
+
+                                                // Configuration options go here
+                                                options: {}
+                                            });
+
+
+
+
+
+
+                                        };
+
+
+
+
+                                    });
+
+
+
                                 </script>
 
                                 <style type="text/css">
@@ -72,7 +113,7 @@ var chart = new Chart(ctx, {
                                     }
 
                                     body{
-                                        background: #c8c8c8;
+                                        background:#fff;
                                         background-attachment: fixed; 
                                         font-family: Helvetica,Arial,Sans-serif; 
                                         overflow-x: hidden;
@@ -83,48 +124,48 @@ var chart = new Chart(ctx, {
                                     }
 
                                     #tela-principal{
-                                        background: #595959;
-                                        color: black;
+                                      background: #fff;
+                                        
                                         height: 100%;
                                         padding: 5px;
                                         overflow: auto;
                                     }
 
                                     #estatisticas-superior{
-                                        margin-bottom: 20px;
+                                         background: #fff;
                                     }
                                     a{
                                         cursor: pointer; 
                                     }
                                     #graficos{
-                                        background: white;
-                                        color: black;
+                                    background: #fff;
+                                       
                                         padding: 5px;
                                         height: 300px;
-                                        border: 2px solid #c8c8c8;
+                                        
                                     }
 
                                     #estatisticas-inferior{
-                                        background: white;
-                                        color: black;
+                                  background: #fff;
+                                        
                                         padding: 5px;
-                                        height: 300px;
-                                        border: 2px solid #595959;
+                                        height: 330px;
+                                     
                                     }
 
                                     #tabela-usuarios{
-                                        background: white;
-                                        color: black;
+                                        background:#fff;
+                                        
                                         padding: 5px;
                                         height: 600px;
-                                        border: 2px solid #595959;
+                                        
                                     }
 
 
 
                                     .blocos-estatistica{
                                         height: 180px;
-                                        border: 5px solid #595959 ;
+                                        
                                         color:white;
                                         font-size: 30px;
                                         text-align: center;
@@ -137,17 +178,18 @@ var chart = new Chart(ctx, {
                                     /* The sidebar menu */
                                     .sidenav {
                                         text-align: left;
-                                        background-color: #FFFFFF; /* Black */
+                                        background-color: #595959; /* Black */
                                         overflow-x: hidden; /* Disable horizontal scroll */
                                         padding-top: 20px;
                                         height: 100%;
+                                        color:white;
                                     }
 
                                     /* The navigation menu links */
                                     .sidenav a {
                                         padding: 20px 8px 6px 16px;
                                         text-decoration: none;
-                                        color: black;
+                                        color:white;
                                         display: block;
                                     }
 
@@ -158,146 +200,150 @@ var chart = new Chart(ctx, {
 
                                 </style>
 
-                         
+
 
                                 </head>
 
                                 <body>
 
-    <div class="container-fluid">
-        <div  class="row" style="height: 100% ;" > 
+                                    <div class="container-fluid">
+                                        <div  class="row" style="height: 100% ;" > 
 
-            <div class="col-md-2 sidenav"  >
-                <a class="glyphicon glyphicon-dashboard" href="central.php"> <span style="font-size: 20px;">Dashboard</span></a> <br>
-                    <a  href="cadArquivo" >Novo Arquivo</a>
-                    <a href="cadUser" >Novo Usuário</a>
-                    <a  href="cadUpload" >Novo Upload</a>
-                    <a  href="cadDownload" >Novo Download</a>
-                    <a  href="cadAcesso" >Novo Acesso</a>
-                                   
+                                            <div class="col-md-2 sidenav"  >
+                                                <a class="glyphicon glyphicon-dashboard" href="central.php"> <span style="font-size: 20px;">Dashboard</span></a> <br>
+                                                    <a  href="cadArquivo" >Novo Arquivo</a>
+                                                    <a href="cadUser" >Novo Usuário</a>
+                                                    <a  href="cadUpload" >Novo Upload</a>
+                                                    <a  href="cadDownload" >Novo Download</a>
+                                                    <a  href="cadAcesso" >Novo Acesso</a>
 
-
-                                    </div>
-
-                                    <div id="tela-principal" class="col-md-10 ">
-
-
-
-                                        <div class="col-md-12 " id="estatisticas-superior"  >
-                                            <div class="col-md-12" style="text-align: center;"> <h3>Estatísticas</h3></div>
-
-                                            <div style="background:#DF013A;" class="col-md-3 blocos-estatistica ">
-                                               
-                                                
-                                                 <div th:each="usuario : ${usuariosestatisticas}">
-                                                     <span style="font-size: 20px;">Usuarios Cadastrados </span>
-                                                     <div th:text="${usuariosestatisticas}">  </div>
-                                                      
-
-                                                 </div>
 
 
                                             </div>
 
-                                            <div style="background:#1C82E0;" class="col-md-3 blocos-estatistica">
-                                            
-                                                 <div th:each="arquivo : ${arquivosestatisticas}">
-                                                     <span style="font-size: 20px;">Arquivos Cadastrados </span>
-                                                     <div th:text="${arquivosestatisticas}">  </div>
-                                                      
+                                            <div id="tela-principal" class="col-md-10 ">
 
-                                                 </div>
 
-                                            
+
+                                                <div class="col-md-12 " id="estatisticas-superior"  >
+                                                    <div class="col-md-12" style="text-align: center;"> <h3>Estatísticas</h3></div>
+
+                                                    <div style="background:#DF013A;" class="col-md-3 blocos-estatistica ">
+
+
+                                                        <div th:each="usuario : ${usuariosestatisticas}">
+                                                            <span style="font-size: 20px;">Usuarios Cadastrados </span>
+                                                            <div th:text="${usuariosestatisticas}">  </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div style="background:#1C82E0;" class="col-md-3 blocos-estatistica">
+
+                                                        <div th:each="arquivo : ${arquivosestatisticas}">
+                                                            <span style="font-size: 20px;">Arquivos Cadastrados </span>
+                                                            <div th:text="${arquivosestatisticas}">  </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div style="background:orange;" class="col-md-3 blocos-estatistica">
+
+                                                        <div th:each="download : ${downloadsestatisticas}">
+                                                            <span style="font-size: 20px;">Downloads Feitos </span>
+                                                            <div th:text="${downloadsestatisticas}">  </div>
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div  style="background:#10BE07;" class="col-md-3 blocos-estatistica">
+
+                                                        <div th:each="upload : ${uploadsestatisticas}">
+                                                            <span style="font-size: 20px;">Uploads Feitos </span>
+                                                            <div th:text="${uploadsestatisticas}">  </div>
+
+
+                                                        </div>           
+
+                                                    </div>
+
+                                                    <div class="col-md-6">
+
+                                                        <div class="col-md-12 " id="graficos"  >
+
+                                                            <canvas style="color:white;" id="myChart"></canvas>
+
+                                                        </div>
+
+                                                        <div class="col-md-12 " id="estatisticas-inferior"  >
+
+                                                            <center>ESTATISTICAS INFERIOR</center>
+
+
+                                                            <canvas style="color:white;" width="800" height="450" id="myChart2"></canvas>
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-md-6 " id="tabela-usuarios"  >
+
+                                                        <center>TABELA USUARIOS</center>
+
+                                                        <table class="table table-striped table-hover table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Id</th>
+                                                                    <th>Nome</th>
+                                                                    <th>Idade</th>
+                                                                    <th>País</th>
+                                                                    <th>Lingua</th>
+
+
+                                                                    <th>Status</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr th:each="usuario : ${usuarios}">
+                                                                    <td th:text="${usuario.getIdUsuario()}"></td>
+                                                                    <td th:text="${usuario.nome}"></td>
+                                                                    <td th:text="${usuario.idade}"></td>
+                                                                    <td th:text="${usuario.pais}"></td>
+                                                                    <td th:text="${usuario.lingua}"></td>
+                                                                    <td th:text="${usuario.status}"></td>
+
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+
+
+
+
+
+
+                                                </div>
+
                                             </div>
 
-                                            <div style="background:orange;" class="col-md-3 blocos-estatistica">
-                                            
-                                                   <div th:each="download : ${downloadsestatisticas}">
-                                                     <span style="font-size: 20px;">Downloads Feitos </span>
-                                                     <div th:text="${downloadsestatisticas}">  </div>
-                                                      
 
-                                                 </div>
-                                            
-                                            </div>
 
-                                            <div  style="background:#10BE07;" class="col-md-3 blocos-estatistica">
-                                            
-                                              <div th:each="upload : ${uploadsestatisticas}">
-                                                     <span style="font-size: 20px;">Downloads Feitos </span>
-                                                     <div th:text="${uploadsestatisticas}">  </div>
-                                                      
-                                            
-                                            </div>           
+
+
+
 
                                         </div>
-
-                                        <div class="col-md-6">
-
-                                            <div class="col-md-12 " id="graficos"  >
-
-                                              <canvas id="myChart"></canvas>
-
-                                            </div>
-
-                                            <div class="col-md-12 " id="estatisticas-inferior"  >
-
-                                                <center>ESTATISTICAS INFERIOR</center>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-6 " id="tabela-usuarios"  >
-
-                                            <center>TABELA USUARIOS</center>
-
-                                            <table class="table table-striped table-hover table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Id</th>
-                                                        <th>Nome</th>
-                                                        <th>Idade</th>
-                                                        <th>País</th>
-                                                        <th>Lingua</th>
+                                </body>
 
 
-                                                        <th>Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr th:each="usuario : ${usuarios}">
-                                                        <td th:text="${usuario.getIdUsuario()}"></td>
-                                                        <td th:text="${usuario.nome}"></td>
-                                                        <td th:text="${usuario.idade}"></td>
-                                                        <td th:text="${usuario.pais}"></td>
-                                                        <td th:text="${usuario.lingua}"></td>
-                                                        <td th:text="${usuario.status}"></td>
-
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-
-
-
-
-
-
-                                    </div>
-
-                                    </div>
-
-
-
-
-
-
-
-</div>
-</body>
-
-
-</html>
+                                </html>

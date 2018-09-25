@@ -28,6 +28,8 @@ public class AcessoService {
        return repository.findAll();
     }
     
+    
+    
    
     
      public Acesso save(Acesso acesso) {
@@ -37,9 +39,14 @@ public class AcessoService {
      
       public int ResultGrafico(){
           
-     
-          
-        return repository.findAll().size();
+        return repository.findByCountAcessos();
     }
+      
+       public int ResultGrafico2(){
+          
+        return repository.findByCountAcessosPassados();
+    }
+      
+     
 
 }

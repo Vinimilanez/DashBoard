@@ -29,6 +29,8 @@ public class UsuarioService {
         return repository.findAll().size();
     }
     
+    
+    
     public Usuario save(Usuario usuario) {
         return repository.save(usuario); 
     }

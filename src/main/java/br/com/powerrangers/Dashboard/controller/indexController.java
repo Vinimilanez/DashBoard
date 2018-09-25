@@ -82,6 +82,9 @@ public class indexController {
                 mv.addObject("uploads",ups.findAll());
                 mv.addObject("downloads",ds.findAll());
                 mv.addObject("acessos", acs.findAll());
+                mv.addObject("acessosGrafico", acs.ResultGrafico());
+                mv.addObject("acessosGrafico2", acs.ResultGrafico2());
+             
 		
 
 		return mv;
