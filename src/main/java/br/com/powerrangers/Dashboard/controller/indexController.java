@@ -111,6 +111,7 @@ public class indexController {
 		
 		if(result.hasErrors()) {
 			return add(arquivo);
+                        
 		}
 		
 		as.save(arquivo);
@@ -130,9 +131,11 @@ public class indexController {
     //-----------------------------UPLOAD-CONTROLLER----------------------------
         
         @PostMapping("/saveUpload")
-        public ModelAndView save (@Valid Upload upload , BindingResult result){
+        public ModelAndView save (@Valid Upload upload,@Valid Usuario usuario,@Valid Arquivo arquivo, BindingResult result){
             if (result.hasErrors()) {
                 return add(upload);
+
+                 
             }
             ups.save(upload);
             
@@ -153,7 +156,7 @@ public class indexController {
     //-----------------------------ACESSO-CONTROLLER----------------------------
         
         @PostMapping("/saveAcesso")
-        public ModelAndView save (@Valid Acesso acesso , BindingResult result){
+        public ModelAndView save (@Valid Acesso acesso,@Valid Usuario usuario,@Valid Arquivo arquivo , BindingResult result){
             if (result.hasErrors()) {
                 return add(acesso);
             }
@@ -176,7 +179,7 @@ public class indexController {
     //-----------------------------DOWNLOAD-CONTROLLER--------------------------
         
         @PostMapping("/saveDownload")
-        public ModelAndView save (@Valid Download download , BindingResult result){
+        public ModelAndView save (@Valid Download download,@Valid Usuario usuario,@Valid Arquivo arquivo , BindingResult result){
             if (result.hasErrors()) {
                 return add(download);
             }

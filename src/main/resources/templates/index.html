@@ -165,11 +165,24 @@
 
                                     .blocos-estatistica{
                                         height: 180px;
-                                        
+                                        cursor: pointer;
                                         color:white;
                                         font-size: 30px;
                                         text-align: center;
                                         padding-top: 35px;
+                                        transition: all 0.5s;
+
+                                    }
+                                    
+                                    .blocos-estatistica:hover{
+                                        height: 180px;
+                                        cursor: pointer;
+                                        color:white;
+                                        font-size: 40px;
+                                        text-align: center;
+                                        padding-top: 35px;
+                                        transition: all 0.5s;
+                                        font-weight: 700;
 
                                     }
 
@@ -210,7 +223,7 @@
                                         <div  class="row" style="height: 100% ;" > 
 
                                             <div class="col-md-2 sidenav"  >
-                                                <a class="glyphicon glyphicon-dashboard" href="central.php"> <span style="font-size: 20px;">Dashboard</span></a> <br>
+                                                <a class="glyphicon glyphicon-dashboard" href="index"> <span style="font-size: 20px;">Dashboard</span></a> <br>
                                                     <a  href="cadArquivo" >Novo Arquivo</a>
                                                     <a href="cadUser" >Novo Usuário</a>
                                                     <a  href="cadUpload" >Novo Upload</a>
@@ -226,7 +239,7 @@
 
 
                                                 <div class="col-md-12 " id="estatisticas-superior"  >
-                                                    <div class="col-md-12" style="text-align: center;"> <h3>Estatísticas</h3></div>
+                                                    <div class="col-md-12" style="text-align: center;"> </div>
 
                                                     <div style="background:#DF013A;" class="col-md-3 blocos-estatistica ">
 
@@ -285,7 +298,7 @@
 
                                                         <div class="col-md-12 " id="estatisticas-inferior"  >
 
-                                                            <center>ESTATISTICAS INFERIOR</center>
+                                                         
 
 
                                                             <canvas style="color:white;" width="800" height="450" id="myChart2"></canvas>
@@ -295,9 +308,9 @@
 
                                                     </div>
 
-                                                    <div class="col-md-6 " id="tabela-usuarios"  >
+                                                    <div class="col-md-6 " id="tabela-usuarios" style="overflow: auto; height: 600px;"  >
 
-                                                        <center>TABELA USUARIOS</center>
+                                                        <center>Usuários</center>
 
                                                         <table class="table table-striped table-hover table-bordered">
                                                             <thead>
